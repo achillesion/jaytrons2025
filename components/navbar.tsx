@@ -55,7 +55,7 @@ export default function Navbar({
   const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
 
     return (
-    <nav className={`border-b border-white/30 ${className}`}>
+    <nav className={`sticky bg-[#181818] top-0 z-50 border-b border-white/30 ${className}`}>
       <div className="flex justify-between items-center pb-4">
             <div className="flex items-center gap-10 ">
           <h1 className="transition-all duration-300 hover:scale-105 cursor-pointer text-white">{brandName}</h1>

@@ -1,24 +1,29 @@
-import feedbackData from '../data/feedbackData.json';
-
-interface Feedback {
-    id: number;
-    title: string;
-    rating: number;
-    dateRange: string;
-    testimonial: string;
-    totalAmount: string;
-    hourlyRate: string;
-    totalHours: string;
-}
+"use client";
+import { feedbackData } from '../data/feedbackData';
+import type { Feedback } from '../data/feedbackData';
+import FeedbackModal from '@/components/FeedbackModal';
+import { useState } from 'react';
 
 export default function Feedback() {
     const { feedbacks } = feedbackData as { feedbacks: Feedback[] };
+    const [selectedFeedback, setSelectedFeedback] = useState<Feedback | null>(null);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const handleFeedbackClick = (feedback: Feedback) => {
+        setSelectedFeedback(feedback);
+        setIsModalOpen(true);
+    };
+
+    const handleCloseModal = () => {
+        setIsModalOpen(false);
+        setSelectedFeedback(null);
+    };
 
     return(
         <>
-            <div className="container mx-auto">
+            <div className="container mx-auto px-4 md:px-6 lg:px-8 py-8 md:py-12">
                 <div className="flex flex-col items-center justify-center gap-8 w-full">
-                    <h1 className="text-center w-full text-lg md:text-xl lg:text-[36px] font-extrabold text-[#10AB01]">
+                    <h1 className="text-center w-full text-lg md:text-xl lg:text-[36px] font-medium text-[#10AB01]">
                         Ratings & Feedback
                     </h1>
                     <div className="flex flex-col gap-6 w-full max-w-4xl">
@@ -26,7 +31,10 @@ export default function Feedback() {
                             <div key={feedback.id} className="bg-none p-6  border-r border-l border-b border-white/10">
                                 <div className="flex flex-col gap-4">
                                     <div className="flex flex-col gap-2">
-                                        <h3 className="text-[#10AB01] font-semibold text-lg">
+                                        <h3 
+                                            className="text-[#10AB01] font-semibold text-lg cursor-pointer hover:text-[#13AA02] transition-colors"
+                                            onClick={() => handleFeedbackClick(feedback)}
+                                        >
                                             {feedback.title}
                                         </h3>
                                         <div className="flex items-center gap-4 text-sm text-gray-300">
@@ -60,6 +68,13 @@ export default function Feedback() {
                     </div>
                 </div>
             </div>
+            
+            {/* Modal */}
+            <FeedbackModal 
+                feedback={selectedFeedback}
+                isOpen={isModalOpen}
+                onClose={handleCloseModal}
+            />
         </>
     )
 }
