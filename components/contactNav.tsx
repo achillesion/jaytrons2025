@@ -3,31 +3,58 @@ import { IoMdMail } from "react-icons/io";
 
 export default function ContactNav() {
     return (
-        <>
-            <div className="flex h-10 gap-6 justify-between">
+        <div className=" hidden md:block
+         text-white py-2 ">
+            <div className="max-w-7xl mx-auto">
+                {/* Desktop Layout */}
+                <div className="hidden md:flex h-10 gap-6 justify-between items-center">
+                    <div className="flex gap-6 items-center">
+                        <div className="flex items-center gap-2 hover:text-blue-400 transition-colors cursor-pointer">
+                            <IoMdMail className="h-4 w-4" />
+                            <h2 className="text-[12px]">support@jaytrons.com</h2>
+                        </div>
+                        <div className="flex items-center gap-2 hover:text-green-400 transition-colors cursor-pointer">
+                            <FaWhatsapp className="h-4 w-4" />
+                            <h2 className="text-[12px]">+92-321-5236350</h2>
+                        </div>
+                    </div>
 
-                <div className=" flex gap-6 items-center">
-                <div className="flex items-center gap-2">
-                    <IoMdMail className="h-4 w-4" />
-                    <h2 className="text-[12px]">support@jaytrons.com</h2>
+                    <div className="flex items-center gap-3">
+                        <FaLinkedin className="h-4 w-4 hover:text-blue-600 transition-colors cursor-pointer" />
+                        <FaFigma className="h-4 w-4 hover:text-purple-500 transition-colors cursor-pointer" />
+                        <FaGithub className="h-4 w-4 hover:text-gray-400 transition-colors cursor-pointer" />
+                        <FaYoutube className="h-4 w-4 hover:text-red-600 transition-colors cursor-pointer" />
+                        <FaBehance className="h-4 w-4 hover:text-blue-500 transition-colors cursor-pointer" />
+                    </div>
                 </div>
-                <div className="flex items-center gap-2">
-                    <FaWhatsapp className="h-4 w-4" />
-                    <h2 className="text-[12px]">+92-321-5236350</h2>
+
+                {/* Mobile Layout */}
+                <div className="md:hidden py-3">
+                    <div className="flex flex-col gap-3">
+                        {/* Contact Info */}
+                        <div className="flex flex-col gap-2">
+                            <div className="flex items-center gap-2 hover:text-blue-400 transition-colors cursor-pointer">
+                                <IoMdMail className="h-4 w-4" />
+                                <h2 className="text-[12px]">support@jaytrons.com</h2>
+                            </div>
+                            <div className="flex items-center gap-2 hover:text-green-400 transition-colors cursor-pointer">
+                                <FaWhatsapp className="h-4 w-4" />
+                                <h2 className="text-[12px]">+92-321-5236350</h2>
+                            </div>
+                        </div>
+
+                        {/* Social Icons */}
+                        <div className="flex items-center gap-4 pt-2 border-t border-gray-600">
+                            <span className="text-[10px] text-gray-400 mr-2">Follow us:</span>
+                            <FaLinkedin className="h-4 w-4 hover:text-blue-600 transition-colors cursor-pointer" />
+                            <FaFigma className="h-4 w-4 hover:text-purple-500 transition-colors cursor-pointer" />
+                            <FaGithub className="h-4 w-4 hover:text-gray-400 transition-colors cursor-pointer" />
+                            <FaYoutube className="h-4 w-4 hover:text-red-600 transition-colors cursor-pointer" />
+                            <FaBehance className="h-4 w-4 hover:text-blue-500 transition-colors cursor-pointer" />
+                        </div>
+                    </div>
                 </div>
-                </div>
-
-                <div className="flex items-center gap-2">
-
-                    <FaLinkedin />
-                    <FaFigma />
-                    <FaGithub />
-                    <FaYoutube />
-                    <FaBehance />
-
-                </div>
-
             </div>
-        </>
+        </div>
     )
 }

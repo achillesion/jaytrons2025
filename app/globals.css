@@ -44,11 +44,11 @@
 
 :root {
   --radius: 0.625rem;
-  --background: #030814;
+  --background: #181818;
   --foreground: #ffffff;
-  --card: #030814;
+  --card: #181818;
   --card-foreground: #ffffff;
-  --popover: #030814;
+  --popover: #181818;
   --popover-foreground: #ffffff;
   --primary: oklch(0.205 0 0);
   --primary-foreground: oklch(0.985 0 0);

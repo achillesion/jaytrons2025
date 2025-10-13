@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar";
 import ContactNav from "@/components/contactNav";
+import { suppressHydrationWarning } from "react";
+import HydrationFix from "./hydration-fix";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,10 +27,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        suppressHydrationWarning
       >
+       <HydrationFix />
        <div className="flex flex-col min-h-screen max-w-[900px] mx-auto ">
         <ContactNav />
        <Navbar />
