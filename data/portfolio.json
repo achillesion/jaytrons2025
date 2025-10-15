@@ -1,0 +1,115 @@
+{
+  "portfolio": {
+    "projects": [
+      {
+        "id": 1,
+        "title": "Chat Collect",
+        "dateRange": "Jan 2024 - Feb 2024",
+        "description": "With the release of the OpenAI GPT Store, I decided to build a SaaS which allows users to collect email addresses from their GPT users. This is a great way to build an audience and monetize your GPT API usage.",
+        "image": "https://pub-83c5db439b40468498f97946200806f7.r2.dev/chat-collect.mp4",
+        "technologies": [
+          "Next.js",
+          "TypeScript", 
+          "PostgreSQL",
+          "Prisma",
+          "TailwindCSS",
+          "Stripe",
+          "Shadcn UI",
+          "Magic UI"
+        ],
+        "links": {
+          "website": "https://chatcollect.com",
+          "github": null
+        },
+        "category": "SaaS",
+        "featured": true
+      },
+      {
+        "id": 2,
+        "title": "Magic UI",
+        "dateRange": "June 2023 - Present",
+        "description": "Designed, developed and sold animated UI components for developers.",
+        "image": "https://cdn.magicui.design/bento-grid.mp4",
+        "technologies": [
+          "Next.js",
+          "TypeScript",
+          "PostgreSQL", 
+          "Prisma",
+          "TailwindCSS",
+          "Stripe",
+          "Shadcn UI",
+          "Magic UI"
+        ],
+        "links": {
+          "website": "https://magicui.design/",
+          "github": "https://github.com/magicuidesign/magicui"
+        },
+        "category": "UI Components",
+        "featured": true
+      },
+      {
+        "id": 3,
+        "title": "Ilm.report",
+        "dateRange": "April 2023 - September 2023",
+        "description": "Developed an open-source logging and analytics platform for OpenAI: Log your ChatGPT API requests, analyze costs, and improve your prompts.",
+        "image": "https://cdn.llm.report/openai-demo.mp4",
+        "technologies": [
+          "Next.js",
+          "TypeScript",
+          "PostgreSQL",
+          "Prisma", 
+          "TailwindCSS",
+          "Shadcn UI",
+          "Magic UI",
+          "Stripe",
+          "Cloudflare Workers"
+        ],
+        "links": {
+          "website": "https://llm.report/",
+          "github": "https://github.com/dillionverma/llm.report"
+        },
+        "category": "Analytics",
+        "featured": true
+      },
+      {
+        "id": 4,
+        "title": "Automatic Chat",
+        "dateRange": "April 2023 - March 2024",
+        "description": "Developed an AI Customer Support Chatbot which automatically responds to customer support tickets using the latest GPT models.",
+        "image": "https://pub-83c5db439b40468498f97946200806f7.r2.dev/automatic-chat.mp4",
+        "technologies": [
+          "Next.js",
+          "TypeScript",
+          "PostgreSQL",
+          "Prisma",
+          "TailwindCSS", 
+          "Shadcn UI",
+          "Magic UI",
+          "Stripe",
+          "Cloudflare Workers"
+        ],
+        "links": {
+          "website": "https://automatic.chat/",
+          "github": null
+        },
+        "category": "AI Development",
+        "featured": true
+      }
+    ],
+    "categories": [
+      "All",
+      "Web Development", 
+      "UI/UX Design",
+      "Mobile Development",
+      "AI Development",
+      "SaaS",
+      "Analytics",
+      "UI Components"
+    ],
+    "metadata": {
+      "totalProjects": 4,
+      "lastUpdated": "2024-01-15",
+      "version": "1.0.0"
+    }
+  }
+}

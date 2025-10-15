@@ -5,17 +5,18 @@ import { HeroJss, HeroStarImage, HeroProfileImg,HeroCTAArrow } from '@/assets/im
 // Use: HeroImages.HeroJss
 import Image from "next/image"
 import { Button } from './ui/button';
+import Link from 'next/link';
 export default function HeroProfile() {
 
     return (
-        <div className="container mx-auto px-4 md:px-6 lg:px-8">
+        <div className="container mx-auto px-4 md:px-6 lg:px-1">
             <div className="flex flex-col lg:flex-row items-start justify-between mt-6 gap-6 lg:gap-8">
                 <div className='flex flex-col w-full lg:max-w-[50%]'>
                     <div className="flex flex-col sm:flex-row gap-2 items-start sm:items-center">
                         <h1 className="text-[28px] sm:text-[36px] lg:text-[48px] leading-tight">Hire the</h1>
                         <div className="flex gap-2 items-center">
-                            <Image src={HeroStarImage} alt="Top Rated" className="w-8 h-8 sm:w-10 sm:h-10 lg:w-auto lg:h-auto" />
-                            <Image src={HeroJss} alt="100% Jib Success Score" className="w-8 h-8 sm:w-10 sm:h-10 lg:w-auto lg:h-auto" />
+                            <Image src={HeroStarImage} alt="Top Rated" className="w-8 h-8 sm:w-10 sm:h-10" />
+                            <Image src={HeroJss} alt="100% Jib Success Score" className="w-8 h-8 sm:w-10 sm:h-10 " />
                         </div>
                     </div>
                     <h1 className='text-[28px] sm:text-[36px] lg:text-[48px] text-[#F66DBC] font-bold leading-tight'>Top Rated Plus</h1>
@@ -28,13 +29,14 @@ export default function HeroProfile() {
                         the world. Top  buisnesses and companies
                         hire Jaytrons talent for their most important projects.
                     </p>
-               
+
+                    <Link href={"https://www.upwork.com/freelancers/~01ed49d15e58d8a435"} target='_blank'>
                     <Button className='bg-[#10AB01] w-full sm:w-[195px] h-[50px] sm:h-[59px] text-[12px] sm:text-[17px] font-bold mt-6
                      sm:mt-[45px] cursor-pointer flex items-center justify-center gap-2 font-regular hover:bg-[#0fab01d5]'>
                         Hire on Upwork
                         <Image src={HeroCTAArrow} alt='Hire us on Upwork' className="w-2 h-2 sm:w-4 sm:h-4" />
                     </Button>
-
+                    </Link>
                 </div>
                 {/* Image section */}
                 <div className="w-full lg:w-auto flex justify-center lg:justify-end">

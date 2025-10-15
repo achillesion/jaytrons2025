@@ -111,11 +111,17 @@ export default function Navbar({
 
         {/* Desktop CTA Button */}
         <div className="hidden md:flex items-center justify-center bg-[#13AA02] rounded-lg p-2 transition-all duration-300 hover:scale-105 cursor-pointer group w-[167px]">
-          <Link href={ctaHref} className="flex items-center text-sm text-white font-semibold">
-            {ctaText}
-          </Link>
-          <IoIosArrowRoundForward className="text-white rotate-[-45deg] w-5 h-5 transition-transform duration-300 group-hover:rotate-0 group-hover:translate-x-1"/>
-        </div>
+  <a
+    href="https://wa.me/923215236350"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="flex items-center text-sm text-white font-semibold"
+  >
+    {ctaText}
+    <IoIosArrowRoundForward className="ml-1 text-white rotate-[-45deg] w-5 h-5 transition-transform duration-300 group-hover:rotate-0 group-hover:translate-x-1"/>
+  </a>
+</div>
+
 
         {/* Mobile Menu Button */}
         <button
