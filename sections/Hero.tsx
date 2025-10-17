@@ -1,55 +1,60 @@
-"use client";
-
-import HeroProfile from '@/components/HeroCom1';
-import { useState } from 'react';
-import Hero2 from './Hero2';
+import React from "react";
+import Image from "next/image";
+// Import individual images
+import { HeroJss } from '@/assets/images';
+import Card from "@/assets/images/Hero/card.svg"
+import Hand from "@/assets/images/Hero/hand.svg"
+import ProfilePic from "@/assets/images/Hero/profileImage.svg"
 
 export default function Hero() {
-    const [activeTab, setActiveTab] = useState<'talent' | 'consulting'>('talent');
+    return (
+        <section className="relative bg-[#090A0C] h-[120vh] md:h-[130vh] w-full overflow-hidden">
+            {/* Background Video */}
+            <video
+                src={"https://huly.io/videos/pages/home/hero/hero.webm?updated=20240607144404"}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="absolute h-full object-cover z-0 w-full left-[50%] lg:left-[54%]"
+                style={{
+                  
+                    top: '50%',
+                    transform: 'translate(-50%, -50%)'
+                }}
+            />
 
-    return(
-        <>
-            <div className="flex flex-col items-center justify-start mt-4 md:mt-6 gap-4 py-8 md:py-12 px-4 md:px-6 lg:px-8">
-                <div className="flex flex-col md:flex-row items-center justify-center gap-4 w-full max-w-6xl">
-                    {/* <h1 className="text-sm md:text-base text-white font-semibold">I'm looking for</h1> */}
-                    
-                    {/* <div className="bg-[#252525] border-[0.5px] rounded-full border-white/30 flex w-full md:w-auto">
-                        <button
-                            onClick={() => setActiveTab('talent')}
-                            className={`flex-1 p-2 md:p-3 text-center rounded-full m-1 transition-all duration-300 ${
-                                activeTab === 'talent'
-                                    ? 'text-[#13AA02] border-2 border-[#13AA02] font-semibold shadow-lg bg-[#13AA02]/10'
-                                    : 'text-[#13AA02] hover:bg-gray-700'
-                            }`}
-                        >
-                            <h1 className="text-xs md:text-sm whitespace-nowrap">Talent</h1>
-                        </button>
-                        <button
-                            onClick={() => setActiveTab('consulting')}
-                            className={`flex-1 p-2 md:p-3 text-center rounded-full m-1 transition-all duration-300 ${
-                                activeTab === 'consulting'
-                                    ? 'text-[#13AA02] border-2 border-[#13AA02] font-semibold shadow-lg bg-[#13AA02]/10'
-                                    : 'text-[#13AA02]  border-none hover:bg-gray-700'
-                            }`}
-                        >
-                            <h1 className="text-xs md:text-sm whitespace-nowrap">Consulting & Service</h1>
-                        </button>
-                    </div> */}
-
-                </div>
-                <div className="w-full">
-                    {/* Content Area */}
-                    <div className="">
-                        {activeTab === 'talent' ? (
-                           <div>
-                            <HeroProfile />
-                           </div>
-                        ) : (
-                            ""
-                        )}
+            <div className="relative w-full flex flex-wrap items-start justify-between max-w-[1100px] m-auto top-40 p-4 md:p-0  h-full ">
+                <div className="flex flex-col ">
+                    <h1 className="text-white text-5xl md:text-[64px] font-bold ">
+                        Hire the <br /><span className="text-[#F66DBC]">Top Rated Plus</span>
+                    </h1>
+                    <div className="flex items-center  gap-2 mt-[19px]">
+                        <Image src={HeroJss} alt="jss" />
+                        <h1 className="text-[20px] text-white font-medium">100% Job Success</h1>
                     </div>
+                    <button className="glow-button relative mt-[19px] bg-[#d1d1d1] max-w-[240px] p-2 uppercase text-black font-bold cursor-pointer text-sm rounded-full transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,165,0,0.8)] hover:shadow-orange-400/60">
+                        <span className="relative z-10 flex items-center justify-center gap-3">
+                            Hire on Upwork
+                            <span className="text-[#8B4513] text-lg">→</span>
+                        </span>
+                    </button>
+                    
+                    <Image src={ProfilePic } alt="profile"  className="w-contain w-250 md:w-180 ml-0 md:ml-8 mt-40 md:mt-40
+                     lg:ml-35 lg:w-200 xl:w-230 xl:mt-50 xl:ml-15"/>
+                  
                 </div>
+                {/* <Image
+                    src={Card}
+                    alt="card"
+                    width={299}
+                    className="opacity-20 hover:opacity-30 mt-10 transition-opacity duration-700 ease-in-out hidden md:block"
+                /> */}
             </div>
-        </>
-    )
+
+            <div className="absolute right-0 bottom-0 hidden lg:block">
+                <Image src={Hand} alt="hand" />
+            </div>
+        </section>
+    );
 }

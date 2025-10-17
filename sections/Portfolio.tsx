@@ -8,7 +8,7 @@ const Portfolio = () => {
     const { projects, categories } = portfolioData.portfolio;
 
     return (
-        <div className='container mx-auto px-4 md:px-6 lg:px-8 py-8 md:py-12 min-h-screen'>
+        <div className='container mx-auto px-4 max-w-[1120px] md:px-6 lg:px-8 py-8 md:py-12 min-h-screen' id='portfolio'>
             <div className='flex flex-col items-center justify-center'>
             <h1 className="text-center w-full text-lg md:text-xl lg:text-[36px] font-medium text-[#10AB01]">
                 Portfolio

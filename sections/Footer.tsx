@@ -34,8 +34,8 @@ const legal = [
 
 const Footer = () => {
   return (
-    <div className='text-white h-full  md:h-[29vh] flex flex-col md:flex-row items-start mt-14 justify-between gap-8 md:gap-4 px-4 md:px-6 lg:px-8'>
-      <div className=''>
+    <div className='flex flex-col md:flex-row gap-10 md:gap-0 justify-between w-full lg:w-[1000px] m-auto p-4 flex-wrap'>
+      <div className='flex-shrink-0'>
         <h1 className="transition-all duration-300 hover:scale-105 cursor-pointer text-white text-xl md:text-2xl">JAYTRONS</h1>
       </div>
       <div className='flex flex-col gap-4'>

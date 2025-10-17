@@ -39,6 +39,7 @@ const people = [
 
 export default function Teams() {
   return (
+    <div id="industries">
     <div className="bg-none py-24 sm:py-32">
       <div className="mx-auto grid max-w-7xl gap-20 px-6 lg:px-8 xl:grid-cols-3">
         <div className="max-w-xl">
@@ -68,6 +69,7 @@ export default function Teams() {
           ))}
         </ul>
       </div>
+    </div>
     </div>
   )
 }

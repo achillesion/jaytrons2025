@@ -5,12 +5,24 @@ import { IoIosArrowRoundForward } from "react-icons/io";
 import { FaReact, FaWordpress, FaFigma, FaMobile, FaBars, FaTimes } from "react-icons/fa";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { useState } from "react";
+import { useTheme } from "@/contexts/ThemeContext";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+
+// Smooth scroll function
+const smoothScrollTo = (elementId: string) => {
+  const element = document.getElementById(elementId);
+  if (element) {
+    element.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    });
+  }
+};
 
 interface NavItem {
   label: string;
@@ -27,24 +39,24 @@ interface NavbarProps {
   className?: string;
 }
 
-export default function Navbar({ 
+export default function Navbar({
   brandName = "JAYTRONS",
   navItems = [
-    { label: "Home", href: "/" },
-    { label: "Portfolio", href: "/portfolio", badge: "02" },
-    { 
-      label: "Services", 
-      href: "/services", 
+    { label: "Home", href: "hero" },
+    { label: "Portfolio", href: "portfolio", badge: "02" },
+    {
+      label: "Services",
+      href: "services",
       badge: "03",
       dropdownItems: [
-        { label: "React", href: "/services/react", icon: <FaReact className="text-white" /> },
-        { label: "WordPress", href: "/services/wordpress", icon: <FaWordpress className="text-white" /> },
-        { label: "UI UX", href: "/services/ui-ux", icon: <FaFigma className="text-white" /> },
-        { label: "React Native", href: "/services/react-native", icon: <FaReact className="text-white" /> },
-        { label: "Ecommerce Store", href: "/services/ecommerce", icon: <MdOutlineShoppingCart className="text-white" /> }
+        { label: "React", href: "services", icon: <FaReact className="text-white" /> },
+        { label: "WordPress", href: "services", icon: <FaWordpress className="text-white" /> },
+        { label: "UI UX", href: "services", icon: <FaFigma className="text-white" /> },
+        { label: "React Native", href: "services", icon: <FaReact className="text-white" /> },
+        { label: "Ecommerce Store", href: "services", icon: <MdOutlineShoppingCart className="text-white" /> }
       ]
     },
-    { label: "Industries", href: "/industries", badge: "09" }
+    { label: "Industries", href: "industries", badge: "09" }
 
   ],
   ctaText = "Whatsapp Now",
@@ -53,74 +65,81 @@ export default function Navbar({
 }: NavbarProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
+  const { activeTab } = useTheme();
 
-    return (
-    <nav className={`sticky bg-[#181818] top-0 z-50 border-b border-white/30 ${className}`}>
-      <div className="flex justify-between items-center pb-4">
-            <div className="flex items-center gap-10 ">
+  return (
+    <nav className={`absolute w-full top-10 left-1/2 -translate-x-1/2 bg-transparent p-4 z-50 max-w-[1120px] ${className}`}>
+      <div className="flex w-full justify-between items-center">
+        <div className="flex items-center gap-10">
           <h1 className="transition-all duration-300 hover:scale-105 cursor-pointer text-white">{brandName}</h1>
 
-                {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center font-semibold gap-10 text-sm">
-        {navItems.map((item) => (
-          item.dropdownItems ? (
-            <DropdownMenu key={item.href}>
-              <DropdownMenuTrigger asChild>
-                <div className="relative  transition-all duration-300 hover:scale-105 flex items-center cursor-pointer text-white">
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center font-semibold gap-10 text-sm">
+            {navItems.map((item) => (
+              item.dropdownItems ? (
+                <DropdownMenu key={item.href}>
+                  <DropdownMenuTrigger asChild>
+                    <div className="relative  transition-all duration-300 hover:scale-105 flex items-center cursor-pointer text-white">
+                      <span>{item.label}</span>
+
+                    </div>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent
+                    className="w-100 flex item-start mt-8 justify-between bg-white p-4"
+                  >
+                    <div className="flex items-start justify-evenly w-full">
+                      <div className="flex flex-col gap-2 text-sm">
+                        <h1 className="text-black"> Our Services</h1>
+                        <p className="text-gray-400 text-[10px]">Need Different Solution <Link href={"/Contact"} className="text-[#2a4d6b] underline">Contact us</Link></p>
+                      </div>
+                      <div>
+                        {item.dropdownItems.map((dropdownItem) => (
+                          <DropdownMenuItem key={dropdownItem.href}>
+                            <button 
+                              onClick={() => smoothScrollTo(dropdownItem.href)}
+                              className="cursor-pointer text-black text-sm flex items-center gap-3 py-2 px-3 hover:bg-gray-100 rounded-md transition-colors w-full text-left"
+                            >
+                              {dropdownItem.icon}
+                              <span>{dropdownItem.label}</span>
+                            </button>
+                          </DropdownMenuItem>
+                        ))}
+                      </div>
+                    </div>
+
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              ) : (
+                <button
+                  key={item.href}
+                  onClick={() => {
+                    smoothScrollTo(item.href);
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className="relative transition-all duration-300 hover:scale-105 flex items-center text-white cursor-pointer"
+                >
                   <span>{item.label}</span>
-                  
-                </div>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent 
-                className="w-100 flex item-start mt-8 justify-between bg-white p-4"
-              >
-                <div className="flex items-start justify-evenly w-full">
-                 <div className="flex flex-col gap-2 text-sm">
-                 <h1 className="text-black"> Our Services</h1>
-                 <p className="text-gray-400 text-[10px]">Need Different Solution <Link href={"/Contact"} className="text-[#2a4d6b] underline">Contact us</Link></p>
-                 </div>
-                   <div>
-                    {item.dropdownItems.map((dropdownItem) => (
-                    <DropdownMenuItem key={dropdownItem.href} asChild>
-                     <Link href={dropdownItem.href} className="cursor-pointer text-black text-sm flex items-center gap-3 py-2 px-3 hover:bg-gray-100 rounded-md transition-colors">
-                        {dropdownItem.icon}
-                        <span>{dropdownItem.label}</span>
-                      </Link>
-                    </DropdownMenuItem>
-                  ))}
-                   </div>
-                </div>
-               
-              </DropdownMenuContent>
-            </DropdownMenu>
-          ) : (
-            <Link 
-              key={item.href}
-              href={item.href} 
-              className="relative transition-all duration-300 hover:scale-105 flex items-center text-white"
-            >
-              <span>{item.label}</span>
-              
-            </Link>
-          )
-        ))}
+
+                </button>
+              )
+            ))}
+          </div>
         </div>
-        </div>
-        
-  
+
+
 
         {/* Desktop CTA Button */}
-        <div className="hidden md:flex items-center justify-center bg-[#13AA02] rounded-lg p-2 transition-all duration-300 hover:scale-105 cursor-pointer group w-[167px]">
-  <a
-    href="https://wa.me/923215236350"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="flex items-center text-sm text-white font-semibold"
-  >
-    {ctaText}
-    <IoIosArrowRoundForward className="ml-1 text-white rotate-[-45deg] w-5 h-5 transition-transform duration-300 group-hover:rotate-0 group-hover:translate-x-1"/>
-  </a>
-</div>
+        <div className="hidden md:flex items-center justify-center bg-[#066BDE] rounded-lg p-2 transition-all duration-300 hover:scale-105 cursor-pointer group w-[167px]">
+          <a
+            href="https://wa.me/923215236350"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center text-sm text-white font-semibold"
+          >
+            {ctaText}
+            <IoIosArrowRoundForward className="ml-1 text-white rotate-[-45deg] w-5 h-5 transition-transform duration-300 group-hover:rotate-0 group-hover:translate-x-1" />
+          </a>
+        </div>
 
 
         {/* Mobile Menu Button */}
@@ -134,30 +153,27 @@ export default function Navbar({
       </div>
 
       {/* Mobile Navigation */}
-      <div className={`md:hidden border-t border-gray-500 bg-[#07121c] rounded-b-xl overflow-hidden transition-all duration-300 ${
-        isMobileMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
-      }`}>
-        <div className={`p-4 transition-all duration-500 ${
-          isMobileMenuOpen ? 'transform translate-y-0' : 'transform -translate-y-4'
+      <div className={`md:hidden  rounded-b-xl overflow-hidden transition-all duration-300 ${isMobileMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
         }`}>
-         
-     
+        <div className={`p-4 transition-all duration-500 ${isMobileMenuOpen ? 'transform translate-y-0' : 'transform -translate-y-4'
+          }`}>
+
+
           <div className="flex flex-col space-y-6">
             {navItems.map((item, index) => (
-              <div 
+              <div
                 key={item.href}
-                className={`transition-all duration-300 ${
-                  isMobileMenuOpen 
-                    ? 'opacity-100 transform translate-x-0' 
-                    : 'opacity-0 transform -translate-x-4'
-                }`}
+                className={`transition-all duration-300 ${isMobileMenuOpen
+                  ? 'opacity-100 transform translate-x-0'
+                  : 'opacity-0 transform -translate-x-4'
+                  }`}
                 style={{
                   transitionDelay: isMobileMenuOpen ? `${index * 100}ms` : '0ms'
                 }}
               >
                 {item.dropdownItems ? (
                   <div>
-                    <button 
+                    <button
                       className="flex items-center justify-between text-white py-2 w-full hover:text-gray-300 transition-colors"
                       onClick={() => setIsServicesDropdownOpen(!isServicesDropdownOpen)}
                     >
@@ -168,41 +184,43 @@ export default function Navbar({
                             {item.badge}
                           </span>
                         )}
-                        <span className={`transform transition-transform duration-200 ${
-                          isServicesDropdownOpen ? 'rotate-180' : 'rotate-0'
-                        }`}>
+                        <span className={`transform transition-transform duration-200 ${isServicesDropdownOpen ? 'rotate-180' : 'rotate-0'
+                          }`}>
                           ▼
                         </span>
                       </div>
                     </button>
                     {isServicesDropdownOpen && (
                       <div className="ml-4 space-y-2 mt-2">
-                      {item.dropdownItems.map((dropdownItem, dropdownIndex) => (
-                        <Link
-                          key={dropdownItem.href}
-                          href={dropdownItem.href}
-                          className={`flex items-center gap-3 text-white py-2 hover:text-gray-300 transition-all duration-300 ${
-                            isMobileMenuOpen 
-                              ? 'opacity-100 transform translate-x-0' 
+                        {item.dropdownItems.map((dropdownItem, dropdownIndex) => (
+                          <button
+                            key={dropdownItem.href}
+                            onClick={() => {
+                              smoothScrollTo(dropdownItem.href);
+                              setIsMobileMenuOpen(false);
+                            }}
+                            className={`flex items-center gap-3 text-white py-2 hover:text-gray-300 transition-all duration-300 w-full text-left ${isMobileMenuOpen
+                              ? 'opacity-100 transform translate-x-0'
                               : 'opacity-0 transform -translate-x-4'
-                          }`}
-                          style={{
-                            transitionDelay: isMobileMenuOpen ? `${(index + 1) * 100 + dropdownIndex * 50}ms` : '0ms'
-                          }}
-                          onClick={() => setIsMobileMenuOpen(false)}
-                        >
-                          {dropdownItem.icon}
-                          <span>{dropdownItem.label}</span>
-                        </Link>
-                      ))}
+                              }`}
+                            style={{
+                              transitionDelay: isMobileMenuOpen ? `${(index + 1) * 100 + dropdownIndex * 50}ms` : '0ms'
+                            }}
+                          >
+                            {dropdownItem.icon}
+                            <span>{dropdownItem.label}</span>
+                          </button>
+                        ))}
                       </div>
                     )}
                   </div>
                 ) : (
-                  <Link
-                    href={item.href}
-                    className="flex items-center justify-between text-white py-2 hover:text-gray-300 transition-colors"
-                    onClick={() => setIsMobileMenuOpen(false)}
+                  <button
+                    onClick={() => {
+                      smoothScrollTo(item.href);
+                      setIsMobileMenuOpen(false);
+                    }}
+                    className="flex items-center justify-between text-white py-2 hover:text-gray-300 transition-colors w-full text-left"
                   >
                     <span>{item.label}</span>
                     {item.badge && (
@@ -210,34 +228,33 @@ export default function Navbar({
                         {item.badge}
                       </span>
                     )}
-                  </Link>
+                  </button>
                 )}
               </div>
             ))}
-            
+
             {/* Mobile CTA Button */}
-            <div 
-              className={`pt-4 border-t border-gray-600 transition-all duration-300 ${
-                isMobileMenuOpen 
-                  ? 'opacity-100 transform translate-x-0' 
-                  : 'opacity-0 transform -translate-x-4'
-              }`}
+            <div
+              className={`pt-4 border-t border-gray-600 transition-all duration-300 ${isMobileMenuOpen
+                ? 'opacity-100 transform translate-x-0'
+                : 'opacity-0 transform -translate-x-4'
+                }`}
               style={{
                 transitionDelay: isMobileMenuOpen ? `${(navItems.length + 1) * 100}ms` : '0ms'
               }}
             >
               <Link
                 href={ctaHref}
-                className="flex items-center justify-center gap-2 bg-white text-black rounded-full p-3 transition-all duration-300 hover:bg-gray-100"
+                className="flex items-center justify-center gap-2 bg-[#13AA02] text-white rounded-full p-3 transition-all duration-300 hover:bg-gray-100"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 <span className="text-sm font-medium">{ctaText}</span>
                 <IoIosArrowRoundForward className="rotate-[-45deg] w-4 h-4" />
-                </Link>
+              </Link>
             </div>
-            </div>
+          </div>
         </div>
       </div>
     </nav>
-    );
+  );
 }

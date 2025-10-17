@@ -3,20 +3,29 @@ import { IoMdMail } from "react-icons/io";
 
 export default function ContactNav() {
     return (
-        <div className=" hidden md:block
-         text-white py-2 ">
-            <div className="max-w-7xl mx-auto">
+        <div className="hidden lg:block absolute top-0 left-1/2 -translate-x-1/2 z-60 w-[1102px] text-white py-2 ">
+            <div className="mx-auto">
                 {/* Desktop Layout */}
                 <div className="hidden md:flex h-10 gap-6 justify-between items-center">
                     <div className="flex gap-6 items-center">
-                        <div className="flex items-center gap-2 hover:text-blue-400 transition-colors cursor-pointer">
+                        <a
+                            href="mailto:support@jaytrons.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-2 hover:text-blue-400 transition-colors cursor-pointer"
+                        >
                             <IoMdMail className="h-4 w-4" />
                             <h2 className="text-[12px]">support@jaytrons.com</h2>
-                        </div>
-                        <div className="flex items-center gap-2 hover:text-green-400 transition-colors cursor-pointer">
+                        </a>
+                        <a
+                            href="https://wa.me/923215236350"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-2 hover:text-green-400 transition-colors cursor-pointer"
+                        >
                             <FaWhatsapp className="h-4 w-4" />
                             <h2 className="text-[12px]">+92-321-5236350</h2>
-                        </div>
+                        </a>
                     </div>
 
                     <div className="flex items-center gap-3">
@@ -33,14 +42,24 @@ export default function ContactNav() {
                     <div className="flex flex-col gap-3">
                         {/* Contact Info */}
                         <div className="flex flex-col gap-2">
-                            <div className="flex items-center gap-2 hover:text-blue-400 transition-colors cursor-pointer">
+                            <a
+                                href="mailto:support@jaytrons.com"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center gap-2 hover:text-blue-400 transition-colors cursor-pointer"
+                            >
                                 <IoMdMail className="h-4 w-4" />
                                 <h2 className="text-[12px]">support@jaytrons.com</h2>
-                            </div>
-                            <div className="flex items-center gap-2 hover:text-green-400 transition-colors cursor-pointer">
+                            </a>
+                            <a
+                                href="https://wa.me/923215236350"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center gap-2 hover:text-green-400 transition-colors cursor-pointer"
+                            >
                                 <FaWhatsapp className="h-4 w-4" />
                                 <h2 className="text-[12px]">+92-321-5236350</h2>
-                            </div>
+                            </a>
                         </div>
 
                         {/* Social Icons */}

@@ -4,6 +4,8 @@ import "./globals.css";
 import Navbar from "@/components/navbar";
 import ContactNav from "@/components/contactNav";
 import HydrationFix from "./hydration-fix";
+import { ThemeProvider } from "@/contexts/ThemeContext";
+import DynamicBackground from "@/components/DynamicBackground";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,13 +34,16 @@ export default function RootLayout({
         suppressHydrationWarning
       >
        <HydrationFix />
-       <div className="flex flex-col min-h-screen max-w-[900px] mx-auto ">
-        <ContactNav />
-       <Navbar />
-       <div className="">
-       {children}
-       </div>
-       </div>
+       <ThemeProvider>
+         <DynamicBackground />
+         <div className="flex flex-col min-h-screen  mx-auto ">
+          <ContactNav />
+         <Navbar />
+         <div className="">
+         {children}
+         </div>
+         </div>
+       </ThemeProvider>
       </body>
     </html>
   );

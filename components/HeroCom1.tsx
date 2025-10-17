@@ -20,7 +20,7 @@ export default function HeroProfile() {
                         </div>
                     </div>
                     <h1 className='text-[28px] sm:text-[36px] lg:text-[48px] text-[#F66DBC] font-bold leading-tight'>Top Rated Plus</h1>
-                    <h1 className='text-[28px] sm:text-[36px] lg:text-[48px] leading-tight'>From <span className='font-bold text-[#10AB01]'>Pakistan</span></h1>
+                    <h1 className='text-[28px] sm:text-[36px] lg:text-lay[48px] leading-tight'>From <span className='font-bold text-[#10AB01]'>Pakistan</span></h1>
                     <p className="text-sm sm:text-base lg:text-lg leading-relaxed mt-4 max-w-2xl">
                         Jaytrons is an exclusive network of the
                         top software developers, designers,
@@ -38,14 +38,7 @@ export default function HeroProfile() {
                     </Button>
                     </Link>
                 </div>
-                {/* Image section */}
-                <div className="w-full lg:w-auto flex justify-center lg:justify-end">
-                    <Image
-                    src={HeroProfileImg}
-                    alt='Profile'
-                    className='w-[280px] sm:w-[320px] lg:w-[390px] h-auto object-contain'
-                    />
-                </div>
+               
             </div>
         </div>
     )
