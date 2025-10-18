@@ -24,7 +24,7 @@ export default function Hero() {
                 }}
             />
 
-            <div className="relative w-full flex flex-wrap items-start justify-between max-w-[1100px] m-auto top-40 p-4 md:p-0  h-full ">
+            <div className="relative w-full flex  items-start justify-between max-w-[1100px] m-auto top-40 p-4 md:p-0  h-full ">
                 <div className="flex flex-col ">
                     <h1 className="text-white text-5xl md:text-[64px] font-bold ">
                         Hire the <br /><span className="text-[#F66DBC]">Top Rated Plus</span>
@@ -40,16 +40,16 @@ export default function Hero() {
                         </span>
                     </button>
                     
-                    <Image src={ProfilePic } alt="profile"  className="w-contain w-250 md:w-180 ml-0 md:ml-8 mt-40 md:mt-40
-                     lg:ml-35 lg:w-200 xl:w-230 xl:mt-50 xl:ml-15"/>
+                    <Image src={ProfilePic } alt="profile"  className=" w-250 md:w-180 ml-0 md:ml-8 mt-40 md:mt-40
+                     lg:ml-35 lg:w-240 xl:w-230 xl:mt-50 xl:ml-30"/>
                   
                 </div>
-                {/* <Image
+                <Image
                     src={Card}
                     alt="card"
                     width={299}
                     className="opacity-20 hover:opacity-30 mt-10 transition-opacity duration-700 ease-in-out hidden md:block"
-                /> */}
+                />
             </div>
 
             <div className="absolute right-0 bottom-0 hidden lg:block">

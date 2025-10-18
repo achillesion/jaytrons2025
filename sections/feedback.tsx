@@ -23,10 +23,10 @@ export default function Feedback() {
         <>
             <div className="container mx-auto px-4 md:px-6 lg:px-8 py-8 md:py-12">
                 <div className="flex flex-col items-center justify-center gap-8 w-full">
-                    <h1 className="text-center w-full text-lg md:text-xl lg:text-[36px] font-medium text-[#10AB01]">
+                    <h1 className="text-center w-full text-lg md:text-xl lg:text-[64px] font-medium text-[#10AB01]">
                         Ratings & Feedback
                     </h1>
-                    <div className="flex flex-col gap-6 w-full max-w-4xl">
+                    <div className="flex flex-col gap-6 w-full max-w-4xl mt-10">
                         {feedbacks.map((feedback) => (
                             <div key={feedback.id} className="bg-none p-6  border-r border-l border-b border-white/10">
                                 <div className="flex flex-col gap-4">
