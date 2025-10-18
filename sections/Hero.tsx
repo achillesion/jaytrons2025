@@ -41,7 +41,7 @@ export default function Hero() {
                     </button>
                     
                     <Image src={ProfilePic } alt="profile"  className=" w-250 md:w-180 ml-0 md:ml-8 mt-40 md:mt-40
-                     lg:ml-35 lg:w-240 xl:w-230 xl:mt-50 xl:ml-30"/>
+                     lg:ml-40 lg:w-220 xl:w-230 xl:mt-50 xl:ml-30"/>
                   
                 </div>
                 <Image

@@ -2,7 +2,8 @@ import React from 'react'
 
 const TechStack = () => {
     return (
-        <div id="services" className='flex  w-full  md:max-w-[1120px] m-auto flex-col items-center justify-center mt-4 md:mt-6 gap-4 py-8 md:py-12 px-4 md:px-6 lg:px-8 h-screen '>
+        <div id="services" className='flex  w-full  md:max-w-[1120px] m-auto flex-col items-center justify-center mt-4 md:mt-6
+         gap-4 py-8 md:py-12 px-4 md:px-6 lg:px-8 lg:h-screen '>
             <h1 className="text-center w-full text-lg md:text-xl lg:text-[64px] font-medium text-[#10AB01] animate-slide-in-left">
             Our Technology Stack & Development Tools
             </h1>
