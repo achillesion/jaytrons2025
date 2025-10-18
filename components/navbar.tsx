@@ -79,7 +79,7 @@ export default function Navbar({
 
   return (
     <div className="relative">
-      <nav ref={dropdownRef} className={`absolute w-full top-2 md:top-10 left-1/2 -translate-x-1/2 bg-transparent p-0 md:p-4 z-50 max-w-[1120px] ${className}`}>
+      <nav ref={dropdownRef} className={`absolute w-full top-2 md:top-10 left-1/2 -translate-x-1/2 bg-transparent p-4 md:p-4 z-50 max-w-[1120px] ${className}`}>
         <div className="flex w-full justify-between items-center">
           <div className="flex items-center gap-10">
             <h1 className="transition-all duration-300 hover:scale-105 cursor-pointer text-white">{brandName}</h1>

@@ -4,11 +4,7 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   // Enable static imports for SVG
   eslint:{
-<<<<<<< HEAD
-    ignoreDuringBuilds: true
-=======
     ignoreDuringBuilds: true,
->>>>>>> cdcf92e4c71edf15520a67206d6d1617549882b7
   },
   images: {
     dangerouslyAllowSVG: true,
