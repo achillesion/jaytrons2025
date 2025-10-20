@@ -217,6 +217,7 @@
   .animate-scroll-left {
     animation: scroll-left 15s linear infinite;
   }
+  
 }
 
 @media (min-width: 641px) and (max-width: 768px) {
