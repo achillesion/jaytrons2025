@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { IoIosArrowRoundForward } from "react-icons/io";
-import { FaReact, FaWordpress, FaFigma, FaMobile, FaBars, FaTimes } from "react-icons/fa";
+import { FaReact, FaWordpress, FaFigma, FaMobile, FaBars, FaTimes, FaArrowLeft } from "react-icons/fa";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { useState, useEffect, useRef } from "react";
 import { useTheme } from "@/contexts/ThemeContext";
@@ -51,9 +51,9 @@ export default function Navbar({
         { label: "Ecommerce Store", href: "ecommerce-development", icon: <MdOutlineShoppingCart className="text-white" /> }
       ]
     },
-  
+
   ],
-  ctaText = "Whatsapp Now",
+  ctaText = "Let's Talk",
   ctaHref = "/Whatsapp",
   className = ""
 }: NavbarProps) {
@@ -84,45 +84,46 @@ export default function Navbar({
           <div className="flex items-center gap-10">
             <h1 className="transition-all duration-300 hover:scale-105 cursor-pointer text-white">{brandName}</h1>
 
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center font-semibold gap-10 text-sm">
-              {navItems.map((item) => (
-                item.dropdownItems ? (
-                  <div key={item.href} className="relative">
-                    <button
-                      onMouseEnter={() => setActiveDropdown(item.href)}
-                      onMouseLeave={() => setActiveDropdown(null)}
-                      className="relative transition-all duration-300 hover:scale-105 flex items-center cursor-pointer text-white"
-                    >
-                      <span>{item.label}</span>
-                    </button>
-                  </div>
-                ) : (
+
+          </div>
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center font-semibold gap-10 text-sm">
+            {navItems.map((item) => (
+              item.dropdownItems ? (
+                <div key={item.href} className="relative">
                   <button
-                    key={item.href}
-                    onClick={() => {
-                      smoothScrollTo(item.href);
-                      setIsMobileMenuOpen(false);
-                    }}
-                    className="relative transition-all duration-300 hover:scale-105 flex items-center text-white cursor-pointer"
+                    onMouseEnter={() => setActiveDropdown(item.href)}
+                    onMouseLeave={() => setActiveDropdown(null)}
+                    className="relative transition-all duration-300 hover:scale-105 flex items-center cursor-pointer text-white"
                   >
                     <span>{item.label}</span>
                   </button>
-                )
-              ))}
-            </div>
+                </div>
+              ) : (
+                <button
+                  key={item.href}
+                  onClick={() => {
+                    smoothScrollTo(item.href);
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className="relative transition-all duration-300 hover:scale-105 flex items-center text-white cursor-pointer"
+                >
+                  <span>{item.label}</span>
+                </button>
+              )
+            ))}
           </div>
-
           {/* Desktop CTA Button */}
-          <div className="hidden md:flex items-center  justify-center bg-[#066BDE] rounded-lg p-2 transition-all duration-300 hover:scale-105 cursor-pointer group w-[167px]">
+          <div className="hidden md:flex items-center  justify-center bg-[#066BDE] rounded-lg p-2 transition-all duration-300 hover:scale-105 cursor-pointer group w-[127px]">
             <a
               href="https://wa.me/923215236350"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center text-sm text-white font-semibold"
+              className="flex items-center text-sm text-white font-semibold gap-2"
             >
               {ctaText}
-              <IoIosArrowRoundForward className="ml-1 text-white rotate-[-45deg] w-5 h-5 transition-transform duration-300 group-hover:rotate-0 group-hover:translate-x-1" />
+              <FaArrowLeft className="rotate-130"/>
+             
             </a>
           </div>
 

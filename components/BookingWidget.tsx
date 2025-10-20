@@ -52,23 +52,32 @@ const BookingWidget = () => {
       {/* Popup Widget */}
       {isOpen && (
         <div
-          className="fixed inset-0 z-100 flex items-center justify-center  bg-opacity-30 backdrop-blur-sm"
+          className="fixed inset-0 z-100 flex items-center justify-center bg-opacity-30 backdrop-blur-lg"
+          style={{ overflow: "hidden" }}
           onClick={handleClosePopup}
         >
           <div
-            className="bg-white rounded-lg p-4 max-w-4xl w-full mx-4 max-h-[90vh] overflow-auto"
+            className="w-[1100px] max-h-[90vh] overflow-hidden rounded-xl"
+            style={{
+              boxShadow: "0 8px 32px 0 rgba(31, 38, 135, 0.19)"
+            }}
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex justify-between items-center mb-4">
-              <h2 className="text-xl font-semibold">Schedule a Meeting</h2>
-              <button
-                onClick={handleClosePopup}
-                className="text-gray-500 hover:text-gray-700 text-2xl font-bold"
-              >
-                ×
-              </button>
-            </div>
-            <InlineWidget url="https://calendly.com/achillesion/new-meeting" />
+            <InlineWidget
+              url="https://calendly.com/achillesion/new-meeting"
+              styles={{
+                height: "80vh",
+                minHeight: "500px",
+                overflow: "hidden"
+              }}
+              pageSettings={{
+                backgroundColor: 'ffffff',
+                hideEventTypeDetails: false,
+                hideLandingPageDetails: false,
+                primaryColor: '4F46E5',
+                textColor: '24262D'
+              }}
+            />
           </div>
         </div>
       )}

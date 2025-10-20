@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Manrope } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar";
 import ContactNav from "@/components/contactNav";
@@ -11,10 +11,15 @@ import BookingWidget from "@/components/BookingWidget";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
-});
+});      
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+const manrope = Manrope({
+  variable: "--font-manrope",
   subsets: ["latin"],
 });
 
@@ -181,7 +186,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${manrope.variable} antialiased`}
         suppressHydrationWarning
       >
        <HydrationFix />

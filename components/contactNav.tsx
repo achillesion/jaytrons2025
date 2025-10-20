@@ -9,13 +9,13 @@ export default function ContactNav() {
                 <div className="hidden md:flex h-10 gap-6 justify-between items-center">
                     <div className="flex gap-6 items-center">
                         <a
-                            href="mailto:support@jaytrons.com"
+                            href="mailto:achillesion@gmail.com"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="flex items-center gap-2 hover:text-blue-400 transition-colors cursor-pointer"
                         >
                             <IoMdMail className="h-4 w-4" />
-                            <h2 className="text-[12px]">support@jaytrons.com</h2>
+                            <h2 className="text-[12px]">achillesion@gmail.com</h2>
                         </a>
                         <a
                             href="https://wa.me/923215236350"
@@ -78,13 +78,13 @@ export default function ContactNav() {
                         {/* Contact Info */}
                         <div className="flex flex-col gap-2">
                             <a
-                                href="mailto:support@jaytrons.com"
+                                href="mailto:achillesion@gmail.com"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="flex items-center gap-2 hover:text-blue-400 transition-colors cursor-pointer"
                             >
                                 <IoMdMail className="h-4 w-4" />
-                                <h2 className="text-[12px]">support@jaytrons.com</h2>
+                                <h2 className="text-[12px]">achillesion@gmail.com</h2>
                             </a>
                             <a
                                 href="https://wa.me/923215236350"
