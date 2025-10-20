@@ -29,11 +29,46 @@ export default function ContactNav() {
                     </div>
 
                     <div className="flex items-center gap-3">
-                        <FaLinkedin className="h-4 w-4 hover:text-blue-600 transition-colors cursor-pointer" />
-                        <FaFigma className="h-4 w-4 hover:text-purple-500 transition-colors cursor-pointer" />
-                        <FaGithub className="h-4 w-4 hover:text-gray-400 transition-colors cursor-pointer" />
-                        <FaYoutube className="h-4 w-4 hover:text-red-600 transition-colors cursor-pointer" />
-                        <FaBehance className="h-4 w-4 hover:text-blue-500 transition-colors cursor-pointer" />
+                        <a
+                            href="https://www.linkedin.com/in/imahmadbashir/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="hover:text-blue-600 transition-colors cursor-pointer"
+                        >
+                            <FaLinkedin className="h-4 w-4" />
+                        </a>
+                        <a
+                            href="https://www.figma.com/@ahmadbashir"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="hover:text-purple-500 transition-colors cursor-pointer"
+                        >
+                            <FaFigma className="h-4 w-4" />
+                        </a>
+                        <a
+                            href="https://github.com/achillesion"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="hover:text-gray-400 transition-colors cursor-pointer"
+                        >
+                            <FaGithub className="h-4 w-4" />
+                        </a>
+                        <a
+                            href="https://www.youtube.com/@jaytrons"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="hover:text-red-600 transition-colors cursor-pointer"
+                        >
+                            <FaYoutube className="h-4 w-4" />
+                        </a>
+                        <a
+                            href="https://www.be.net/ahmadbashir"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="hover:text-blue-500 transition-colors cursor-pointer"
+                        >
+                            <FaBehance className="h-4 w-4" />
+                        </a>
                     </div>
                 </div>
 
@@ -65,11 +100,46 @@ export default function ContactNav() {
                         {/* Social Icons */}
                         <div className="flex items-center gap-4 pt-2 border-t border-gray-600">
                             <span className="text-[10px] text-gray-400 mr-2">Follow us:</span>
-                            <FaLinkedin className="h-4 w-4 hover:text-blue-600 transition-colors cursor-pointer" />
-                            <FaFigma className="h-4 w-4 hover:text-purple-500 transition-colors cursor-pointer" />
-                            <FaGithub className="h-4 w-4 hover:text-gray-400 transition-colors cursor-pointer" />
-                            <FaYoutube className="h-4 w-4 hover:text-red-600 transition-colors cursor-pointer" />
-                            <FaBehance className="h-4 w-4 hover:text-blue-500 transition-colors cursor-pointer" />
+                            <a
+                                href="https://www.linkedin.com/in/imahmadbashir/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:text-blue-600 transition-colors cursor-pointer"
+                            >
+                                <FaLinkedin className="h-4 w-4" />
+                            </a>
+                            <a
+                                href="https://www.figma.com/@ahmadbashir"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:text-purple-500 transition-colors cursor-pointer"
+                            >
+                                <FaFigma className="h-4 w-4" />
+                            </a>
+                            <a
+                                href="https://github.com/achillesion"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:text-gray-400 transition-colors cursor-pointer"
+                            >
+                                <FaGithub className="h-4 w-4" />
+                            </a>
+                            <a
+                                href="https://www.youtube.com/@jaytrons"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:text-red-600 transition-colors cursor-pointer"
+                            >
+                                <FaYoutube className="h-4 w-4" />
+                            </a>
+                            <a
+                                href="https://www.be.net/ahmadbashir"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:text-blue-500 transition-colors cursor-pointer"
+                            >
+                                <FaBehance className="h-4 w-4" />
+                            </a>
                         </div>
                     </div>
                 </div>

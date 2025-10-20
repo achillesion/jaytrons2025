@@ -5,6 +5,7 @@ import { HeroJss } from '@/assets/images';
 import Card from "@/assets/images/Hero/card.svg"
 import Hand from "@/assets/images/Hero/hand.svg"
 import ProfilePic from "@/assets/images/Hero/profileImage.svg"
+import { FaArrowLeft } from "react-icons/fa";
 
 export default function Hero() {
     return (
@@ -36,7 +37,7 @@ export default function Hero() {
                     <button className="glow-button relative mt-[19px] bg-[#d1d1d1] max-w-[240px] p-2 uppercase text-black font-bold cursor-pointer text-sm rounded-full transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,165,0,0.8)] hover:shadow-orange-400/60">
                         <span className="relative z-10 flex items-center justify-center gap-3">
                             Hire on Upwork
-                            <span className="text-[#8B4513] text-lg">→</span>
+                            <FaArrowLeft className="rotate-160"/>
                         </span>
                     </button>
                     

@@ -8,7 +8,6 @@ const Portfolio = () => {
     const { projects, categories } = portfolioData.portfolio;
     const [selectedCategory, setSelectedCategory] = useState('All');
 
-    // Filter projects based on selected category
     const filteredProjects = selectedCategory === 'All' 
         ? projects 
         : projects.filter(project => project.category === selectedCategory);

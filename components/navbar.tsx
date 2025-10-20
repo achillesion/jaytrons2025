@@ -167,7 +167,7 @@ export default function Navbar({
         </div>
       </nav>
 
-      {/* Services Dropdown Component */}
+      {/* Services Dropdown Component - Tesla Style */}
       <ServicesDropdown
         isOpen={activeDropdown === 'services'}
         onClose={() => setActiveDropdown(null)}

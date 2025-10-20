@@ -44,7 +44,7 @@
           "website": "https://magicui.design/",
           "github": "https://github.com/magicuidesign/magicui"
         },
-        "category": "UI Components",
+        "category": "Web Development",
         "featured": true
       },
       {
@@ -68,7 +68,7 @@
           "website": "https://llm.report/",
           "github": "https://github.com/dillionverma/llm.report"
         },
-        "category": "Analytics",
+        "category": "AI Development",
         "featured": true
       },
       {
@@ -92,19 +92,15 @@
           "website": "https://automatic.chat/",
           "github": null
         },
-        "category": "AI Development",
+        "category": "Web Development",
         "featured": true
       }
     ],
     "categories": [
       "All",
       "Web Development", 
-      "UI/UX Design",
-      "Mobile Development",
       "AI Development",
-      "SaaS",
-      "Analytics",
-      "UI Components"
+      "SaaS"
     ],
     "metadata": {
       "totalProjects": 4,
