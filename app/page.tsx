@@ -13,9 +13,9 @@ export default function Home() {
     <div className="flex flex-col">
       <Hero />
     </div>
-    <RevealOnScroll>
+    <RevealOnScroll delayMs={150}>
       <div className="flex flex-col">
-        <Portfolio />
+        <Feedback />
       </div>
     </RevealOnScroll>
     <RevealOnScroll delayMs={100}>
@@ -23,22 +23,12 @@ export default function Home() {
         <TechStack />
       </div>
     </RevealOnScroll>
-    <RevealOnScroll delayMs={150}>
+    <RevealOnScroll>
       <div className="flex flex-col">
-        <Feedback />
+        <Portfolio />
       </div>
     </RevealOnScroll>
-    <RevealOnScroll delayMs={200}>
-      <div className="flex flex-col">
-        <Teams />
-      </div>
-    </RevealOnScroll>
-    <RevealOnScroll delayMs={250}>
-      <div className="flex flex-col">
-        <Cta />
-      </div>
-    </RevealOnScroll>
-    <RevealOnScroll delayMs={300}>
+   <RevealOnScroll delayMs={300}>
       <div className="flex flex-col">
         <Footer />
       </div>

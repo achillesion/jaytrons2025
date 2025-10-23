@@ -19,7 +19,7 @@ const Portfolio = () => {
                 Portfolio
             </h1>
             <div className='w-full mt-6'>
-                <div className='flex gap-4 items-center overflow-x-auto scrollbar-hide pb-2 px-4 md:px-0 md:justify-center'>
+                <div className='flex flex-col md:flex-row gap-4 items-start md:items-center overflow-x-auto scrollbar-hide pb-2 px-4 md:px-0 md:justify-center'>
                     {categories.map((category, index) => (
                         <button
                             key={index}

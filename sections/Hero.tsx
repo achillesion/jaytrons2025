@@ -41,8 +41,8 @@ export default function Hero() {
                         </span>
                     </button>
                     
-                    <div className="absolute h-[55%] md:h-[72%] lg:h-[80%] w-full flex md:justify-start lg:justify-center items-end-safe">
-                    <Image src={ProfilePic } alt="profile"  className="w-[85%] sm:w-[90%] lg:w-[80%]"/>
+                    <div className="absolute h-[55%] sm:h-[45%] md:h-[42%] lg:h-[80%] w-full flex md:justify-start lg:justify-center items-end-safe">
+                    <Image src={ProfilePic } alt="profile"  className="w-[85%] sm:w-[90%] lg:w-[40%]"/>
                     </div>
                   
                 </div>
