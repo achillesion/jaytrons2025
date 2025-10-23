@@ -44,11 +44,11 @@ export default function Navbar({
       href: "services",
       badge: "03",
       dropdownItems: [
-        { label: "React", href: "react-development", icon: <FaReact className="text-white" /> },
-        { label: "WordPress", href: "wordpress-development", icon: <FaWordpress className="text-white" /> },
-        { label: "UI UX", href: "ui-ux-design", icon: <FaFigma className="text-white" /> },
-        { label: "React Native", href: "react-native-development", icon: <FaReact className="text-white" /> },
-        { label: "Ecommerce Store", href: "ecommerce-development", icon: <MdOutlineShoppingCart className="text-white" /> }
+        { label: "React", href: "react-development", icon: <FaReact className="text-black" /> },
+        { label: "WordPress", href: "wordpress-development", icon: <FaWordpress className="text-black" /> },
+        { label: "UI UX", href: "ui-ux-design", icon: <FaFigma className="text-black" /> },
+        { label: "React Native", href: "react-native-development", icon: <FaReact className="text-black" /> },
+        { label: "Ecommerce Store", href: "ecommerce-development", icon: <MdOutlineShoppingCart className="text-black" /> }
       ]
     },
 
@@ -78,11 +78,12 @@ export default function Navbar({
   }, []);
 
   return (
-    <div className="relative">
-      <nav ref={dropdownRef} className={`absolute w-full top-2 md:top-10 left-1/2 -translate-x-1/2 bg-transparent p-4 md:p-4 z-50 max-w-[1120px] ${className}`}>
-        <div className="flex w-full justify-between items-center">
+   
+     <div className="relative ">
+      <nav ref={dropdownRef} className={`absolute w-full top-2 md:top-10 left-1/2 -translate-x-1/2 p-4 md:p-4 z-50 bg-white  ${className}`}>
+        <div className="flex w-full justify-between items-center max-w-[1202px] mx-auto">
           <div className="flex items-center gap-10">
-            <h1 className="transition-all duration-300 hover:scale-105 cursor-pointer text-white">{brandName}</h1>
+            <h1 className="transition-all duration-300 hover:scale-105 cursor-pointer text-black">{brandName}</h1>
 
 
           </div>
@@ -94,7 +95,7 @@ export default function Navbar({
                   <button
                     onMouseEnter={() => setActiveDropdown(item.href)}
                     onMouseLeave={() => setActiveDropdown(null)}
-                    className="relative transition-all duration-300 hover:scale-105 flex items-center cursor-pointer text-white"
+                    className="relative transition-all duration-300 hover:scale-105 flex items-center cursor-pointer text-black"
                   >
                     <span>{item.label}</span>
                   </button>
@@ -106,7 +107,7 @@ export default function Navbar({
                     smoothScrollTo(item.href);
                     setIsMobileMenuOpen(false);
                   }}
-                  className="relative transition-all duration-300 hover:scale-105 flex items-center text-white cursor-pointer"
+                  className="relative transition-all duration-300 hover:scale-105 flex items-center text-black cursor-pointer"
                 >
                   <span>{item.label}</span>
                 </button>
@@ -119,7 +120,7 @@ export default function Navbar({
               href="https://wa.me/923215236350"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center text-sm text-white font-semibold gap-2"
+              className="flex items-center text-sm text-black font-semibold gap-2"
             >
               {ctaText}
               <FaArrowLeft className="rotate-130"/>
@@ -129,7 +130,7 @@ export default function Navbar({
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-white p-2 "
+            className="md:hidden text-black p-2 "
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle mobile menu"
           >
@@ -138,7 +139,7 @@ export default function Navbar({
         </div>
 
         {/* Mobile Navigation */}
-        <div className={`md:hidden rounded-b-xl overflow-hidden bg-black/80 backdrop-blur-md border border-white/10 transition-all duration-300 ${isMobileMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
+        <div className={`md:hidden rounded-b-xl overflow-hidden bg-black/80 backdrop-blur-md border border-black/10 transition-all duration-300 ${isMobileMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
           }`}>
           <div className={`p-4 transition-all duration-500 ${isMobileMenuOpen ? 'transform translate-y-0' : 'transform -translate-y-4'
             }`}>
@@ -157,7 +158,7 @@ export default function Navbar({
                       smoothScrollTo(item.href);
                       setIsMobileMenuOpen(false);
                     }}
-                    className="text-white hover:text-[#13AA02] transition-colors duration-300 text-left"
+                    className="text-black hover:text-[#13AA02] transition-colors duration-300 text-left"
                   >
                     {item.label}
                   </button>
@@ -176,5 +177,6 @@ export default function Navbar({
         onMouseLeave={() => setActiveDropdown(null)}
       />
     </div>
+ 
   );
 }

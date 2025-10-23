@@ -81,22 +81,22 @@ const ServicesDropdown = ({ isOpen, onClose, onMouseEnter, onMouseLeave }: Servi
 
   return (
     <div 
-      className={`absolute top-30 left-1/2 transform -translate-x-1/2 max-w-[1300px] rounded-md shadow-xl bg-white transition-all duration-500 ease-out overflow-hidden z-40 ${
+      className={`absolute top-25 left-1/2 transform -translate-x-1/2 w-full  rounded-md shadow-xl bg-white text-white transition-all duration-500 ease-out overflow-hidden z-40 ${
         isOpen 
-          ? 'h-[70vh] opacity-100 translate-y-0' 
+          ? 'h-[60vh] opacity-100 translate-y-0' 
           : 'h-0 opacity-0 -translate-y-full'
       }`}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
-      <div className="p-8 h-full">
+      <div className="p-8 h-full max-w-[1202px] mx-auto">
         <div className="flex h-full gap-8">
           {/* Vehicle Grid */}
           <div className="flex-1 grid grid-cols-3 gap-6">
             {vehicles.map((vehicle, index) => (
               <div key={index} className="group cursor-pointer">
                 <Image src={vehicle.image} alt="car image"width={200} height={100}/>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">{vehicle.name}</h3>
+                <h3 className="text-lg font-semibold text-black mb-2">{vehicle.name}</h3>
                 <div className="flex gap-4">
                   <Link 
                     href={vehicle.learnLink}
@@ -122,7 +122,7 @@ const ServicesDropdown = ({ isOpen, onClose, onMouseEnter, onMouseLeave }: Servi
                 <Link
                   key={index}
                   href={`/${link.toLowerCase().replace(/\s+/g, '-')}`}
-                  className="block text-sm text-gray-600 hover:text-gray-900 transition-colors py-1"
+                  className="block text-sm text-black hover:text-gray-900 transition-colors py-1"
                 >
                   {link}
                 </Link>

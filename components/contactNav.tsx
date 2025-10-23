@@ -3,8 +3,9 @@ import { IoMdMail } from "react-icons/io";
 
 export default function ContactNav() {
     return (
-        <div className="hidden lg:block absolute top-0 left-1/2 -translate-x-1/2 z-60 w-[1102px] text-white py-2 ">
-            <div className="mx-auto">
+       
+ <div className="hidden lg:block absolute top-0 left-1/2 -translate-x-1/2 z-60 bg-white w-full  py-2 px-2  ">
+            <div className="mx-auto  w-[1202px] text-black">
                 {/* Desktop Layout */}
                 <div className="hidden md:flex h-10 gap-6 justify-between items-center">
                     <div className="flex gap-6 items-center">
@@ -145,5 +146,7 @@ export default function ContactNav() {
                 </div>
             </div>
         </div>
+      
+       
     )
 }
