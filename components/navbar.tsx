@@ -88,14 +88,14 @@ export default function Navbar({
 
           </div>
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center font-semibold gap-10 text-sm">
+          <div className="hidden md:flex items-center font-regular gap-10 text-sm">
             {navItems.map((item) => (
               item.dropdownItems ? (
                 <div key={item.href} className="relative">
                   <button
                     onMouseEnter={() => setActiveDropdown(item.href)}
                     onMouseLeave={() => setActiveDropdown(null)}
-                    className="relative transition-all duration-300 hover:scale-105 flex items-center cursor-pointer text-black"
+                    className="relative transition-all duration-300 flex items-center cursor-pointer font-reguler text-black"
                   >
                     <span>{item.label}</span>
                   </button>
@@ -107,7 +107,7 @@ export default function Navbar({
                     smoothScrollTo(item.href);
                     setIsMobileMenuOpen(false);
                   }}
-                  className="relative transition-all duration-300 hover:scale-105 flex items-center text-black cursor-pointer"
+                  className="relative transition-all duration-300  flex items-center text-black  font-reguler  cursor-pointer"
                 >
                   <span>{item.label}</span>
                 </button>
@@ -120,7 +120,7 @@ export default function Navbar({
               href="https://wa.me/923215236350"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center text-sm text-black font-semibold gap-2"
+              className="flex items-center text-sm text-white font-semibold gap-2"
             >
               {ctaText}
               <FaArrowLeft className="rotate-130"/>
