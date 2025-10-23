@@ -240,3 +240,85 @@
 .scrollbar-hide::-webkit-scrollbar { 
   display: none;  /* Safari and Chrome */
 }
+
+/* Profile Image Custom Media Queries for Laptop Devices */
+.profile-image {
+  width: 85% !important;
+  margin-left: 20px !important;
+  transition: all 0.3s ease;
+  display: block;
+}
+
+/* Laptop devices: 700px - 800px */
+@media (min-width: 500px) and (max-width: 700px) {
+  .profile-image {
+   
+    width: 90% !important;
+    margin-left: 10px !important;
+  }
+}
+/* Laptop devices: 700px - 800px */
+@media (min-width: 700px) and (max-width: 800px) {
+  .profile-image {
+    width: 80% !important;
+    margin-left: 10px !important;
+  }
+}
+/* Laptop devices: 800px - 1200px */
+@media (min-width: 800px) and (max-width: 900px) {
+  .profile-image {
+    width: 80% !important;
+    margin-left: 25px !important;
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1000px) {
+  .profile-image {
+    width: 76% !important;
+    margin-left: 40px !important;
+  }
+}
+
+@media (min-width: 1001px) and (max-width: 1100px) {
+  .profile-image {
+    width: 68% !important;
+    margin-left: 140px !important;
+  }
+}
+
+@media (min-width: 1101px) and (max-width: 1200px) {
+  .profile-image {
+    width:69% !important;
+    margin-left: 145px !important;
+  }
+}
+
+@media (min-width: 1201px) and (max-width: 1400px) {
+  .profile-image {
+    width: 65% !important;
+    margin-left: 180px !important;
+  }
+}
+
+@media (min-width: 1400px) and (max-width: 1500px) {
+  .profile-image {
+    width: 65% !important;
+    margin-left: 180px !important;
+  }
+}
+
+
+@media (min-width: 1500px) and (max-width: 1800px) {
+  .profile-image {
+    width: 67% !important;
+    margin-left: 170px !important;
+  }
+}
+
+
+@media (min-width: 1800px) and (max-width: 2000px) {
+  .profile-image {
+    width: 77% !important;
+    margin-left: 100px !important;
+  }
+}

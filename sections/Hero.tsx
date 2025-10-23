@@ -119,7 +119,7 @@ export default function Hero() {
                         <h1 className="text-[20px] text-white font-medium">100% Job Success</h1>
                     </div>
                     <InteractiveButton 
-                        className="mt-[19px] max-w-[240px] p-2 uppercase text-black font-bold cursor-pointer text-sm rounded-full transition-all duration-300 hover:scale-105"
+                        className="mt-[19px] bg-[#d1d1d1] max-w-[240px] p-2 uppercase text-black font-bold cursor-pointer text-sm rounded-full transition-all duration-300 hover:scale-105 border-2 border-transparent hover:border-white/20"
                     >
                         <span className="flex items-center justify-center gap-3">
                            Hire On Upwork
@@ -127,8 +127,16 @@ export default function Hero() {
                         </span>
                     </InteractiveButton>
                     
-                    <div className="absolute h-[55%] sm:h-[45%] md:h-[74%] lg:h-[75%] xl:h-[80%] w-full flex md:justify-start lg:justify-start items-end-safe">
-                    <Image src={ProfilePic } alt="profile"  className="w-[85%] sm:w-[90%] md:w-[80%] lg:w-[76%] ml-5 md:ml-12 lg:ml-25"/>
+                    <div className="absolute h-[55%] sm:h-[68%] md:h-[74%] lg:h-[75%] xl:h-[79%] w-full flex md:justify-start lg:justify-start items-end-safe">
+                    <Image 
+                        src={ProfilePic} 
+                        alt="profile"  
+                        className="profile-image"
+                        style={{
+                            width: '85%',
+                            marginLeft: '20px'
+                        }}
+                    />
                     </div>
                   
                 </div>
