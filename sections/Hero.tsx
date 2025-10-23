@@ -109,7 +109,7 @@ export default function Hero() {
                 }}
             />
 
-            <div className="relative w-full flex  items-start justify-between max-w-[1100px] m-auto top-40 p-4 md:p-0  h-full ">
+            <div className="relative w-full flex  items-start justify-between max-w-[1080px] m-auto top-40 p-4 md:p-0  h-full ">
                 <div className="flex flex-col ">
                     <h1 className="text-white text-5xl md:text-[64px] font-bold ">
                         Hire the <br /><span className="text-[#F66DBC]">Top Rated Plus</span>
