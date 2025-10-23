@@ -1,4 +1,5 @@
-import React from "react";
+"use client"
+import React, { useState, useRef } from "react";
 import Image from "next/image";
 // Import individual images
 import { HeroJss } from '@/assets/images';
@@ -6,6 +7,89 @@ import Card from "@/assets/images/Hero/card.svg"
 import Hand from "@/assets/images/Hero/hand.svg"
 import ProfilePic from "@/assets/images/Hero/profileImage.svg"
 import { FaArrowLeft } from "react-icons/fa";
+
+// Interactive Button Component with Shining Effect
+type InteractiveButtonProps = React.PropsWithChildren<{
+    className?: string;
+    [key: string]: any;
+}>;
+
+const InteractiveButton: React.FC<InteractiveButtonProps> = ({ children, className = "", ...props }) => {
+    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+    const [isHovered, setIsHovered] = useState(false);
+    const buttonRef = useRef<HTMLButtonElement>(null);
+
+    const handleMouseMove = (e: React.MouseEvent<HTMLButtonElement>) => {
+        if (buttonRef.current && isHovered) {
+            const rect = buttonRef.current.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            setMousePosition({ x, y });
+        }
+    };
+
+    const handleMouseEnter = () => {
+        setIsHovered(true);
+    };
+
+    const handleMouseLeave = () => {
+        setIsHovered(false);
+    };
+
+    return (
+        <button
+            ref={buttonRef}
+            className={`relative overflow-hidden ${className}`}
+            onMouseMove={handleMouseMove}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            {...props}
+        >
+            {/* Background layer */}
+            <div className="absolute inset-0 bg-[#d1d1d1] rounded-full" />
+            
+            {/* Shining effect overlay - covers full button */}
+            <div
+                className={`absolute inset-0 transition-opacity duration-300 ${
+                    isHovered ? 'opacity-100' : 'opacity-0'
+                }`}
+                style={{
+                    background: `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, 
+                        rgba(255, 255, 255, 0.9) 0%, 
+                        rgba(255, 255, 255, 0.7) 20%, 
+                        rgba(255, 250, 205, 0.5) 40%, 
+                        rgba(244, 210, 191, 0.3) 60%, 
+                        transparent 80%)`,
+                    pointerEvents: 'none',
+                    borderRadius: '9999px'
+                }}
+            />
+            
+            {/* Outer glow effect - extends beyond button */}
+            <div
+                className={`absolute inset-0 transition-opacity duration-300 ${
+                    isHovered ? 'opacity-100' : 'opacity-0'
+                }`}
+                style={{
+                    background: `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, 
+                        rgba(255, 255, 255, 0.4) 0%, 
+                        rgba(255, 250, 205, 0.2) 30%, 
+                        transparent 70%)`,
+                    pointerEvents: 'none',
+                    borderRadius: '9999px',
+                    filter: 'blur(10px)',
+                    transform: 'scale(1.4)',
+                    zIndex: -1
+                }}
+            />
+            
+            {/* Button content - stable and on top */}
+            <span className="relative z-20 flex items-center justify-center">
+                {children}
+            </span>
+        </button>
+    );
+};
 
 export default function Hero() {
     return (
@@ -34,15 +118,17 @@ export default function Hero() {
                         <Image src={HeroJss} alt="jss" />
                         <h1 className="text-[20px] text-white font-medium">100% Job Success</h1>
                     </div>
-                    <button className="glow-button relative mt-[19px] bg-[#d1d1d1] max-w-[240px] p-2 uppercase text-black font-bold cursor-pointer text-sm rounded-full transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,165,0,0.8)] hover:shadow-orange-400/60">
-                        <span className="relative z-10 flex items-center justify-center gap-3">
-                            Hire on Upwork
+                    <InteractiveButton 
+                        className="mt-[19px] max-w-[240px] p-2 uppercase text-black font-bold cursor-pointer text-sm rounded-full transition-all duration-300 hover:scale-105"
+                    >
+                        <span className="flex items-center justify-center gap-3">
+                           Hire On Upwork
                             <FaArrowLeft className="rotate-160"/>
                         </span>
-                    </button>
+                    </InteractiveButton>
                     
-                    <div className="absolute h-[55%] sm:h-[45%] md:h-[42%] lg:h-[80%] w-full flex md:justify-start lg:justify-center items-end-safe">
-                    <Image src={ProfilePic } alt="profile"  className="w-[85%] sm:w-[90%] lg:w-[40%]"/>
+                    <div className="absolute h-[55%] sm:h-[45%] md:h-[74%] lg:h-[75%] xl:h-[80%] w-full flex md:justify-start lg:justify-start items-end-safe">
+                    <Image src={ProfilePic } alt="profile"  className="w-[85%] sm:w-[90%] md:w-[80%] lg:w-[76%] ml-5 md:ml-12 lg:ml-25"/>
                     </div>
                   
                 </div>
@@ -54,7 +140,7 @@ export default function Hero() {
                 />
             </div>
 
-            <div className="absolute right-0 bottom-0 hidden lg:block">
+            <div className="absolute right-0 bottom-0 hidden xl:block">
                 <Image src={Hand} alt="hand" />
             </div>
         </section>

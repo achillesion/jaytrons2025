@@ -57,10 +57,8 @@ const BookingWidget = () => {
           onClick={handleClosePopup}
         >
           <div
-            className="w-[1100px] max-h-[90vh] overflow-hidden rounded-xl"
-            style={{
-              boxShadow: "0 8px 32px 0 rgba(31, 38, 135, 0.19)"
-            }}
+            className="w-[1100px] max-h-full overflow-hidden rounded-xl"
+            
             onClick={(e) => e.stopPropagation()}
           >
             <InlineWidget

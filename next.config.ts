@@ -9,8 +9,8 @@ const nextConfig: NextConfig = {
   images: {
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+    domains: ["digitalassets.tesla.com"],
   },
-  
   // SEO and Performance optimizations
   compress: true,
   poweredByHeader: false,
