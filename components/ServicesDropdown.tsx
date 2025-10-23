@@ -81,7 +81,7 @@ const ServicesDropdown = ({ isOpen, onClose, onMouseEnter, onMouseLeave }: Servi
 
   return (
     <div 
-      className={`absolute top-25 left-1/2 transform -translate-x-1/2 w-full  rounded-md shadow-xl bg-white text-white transition-all duration-500 ease-out overflow-hidden z-40 ${
+      className={`absolute top-10 left-1/2 transform -translate-x-1/2 w-full  rounded-md shadow-xl bg-white text-white transition-all duration-500 ease-out overflow-hidden z-40 ${
         isOpen 
           ? 'h-[60vh] opacity-100 translate-y-0' 
           : 'h-0 opacity-0 -translate-y-full'

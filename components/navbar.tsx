@@ -80,7 +80,7 @@ export default function Navbar({
   return (
    
      <div className="relative ">
-      <nav ref={dropdownRef} className={`absolute w-full top-2 md:top-10 left-1/2 -translate-x-1/2 p-4 md:p-4 z-50 bg-white  ${className}`}>
+      <nav ref={dropdownRef} className={`absolute w-full top-2 md:top-0 left-1/2 -translate-x-1/2 p-4 md:p-4 z-50 bg-white  ${className}`}>
         <div className="flex w-full justify-between items-center max-w-[1202px] mx-auto">
           <div className="flex items-center gap-10">
             <h1 className="transition-all duration-300 hover:scale-105 cursor-pointer text-black">{brandName}</h1>
@@ -95,7 +95,7 @@ export default function Navbar({
                   <button
                     onMouseEnter={() => setActiveDropdown(item.href)}
                     onMouseLeave={() => setActiveDropdown(null)}
-                    className="relative transition-all duration-300 flex items-center cursor-pointer font-reguler text-black"
+                    className="relative transition-all duration-300 hover:scale-105 flex items-center cursor-pointer font-reguler text-black"
                   >
                     <span>{item.label}</span>
                   </button>

@@ -194,7 +194,7 @@ export default function RootLayout({
        <ThemeProvider>
          <DynamicBackground />
          <div className="flex flex-col min-h-screen  mx-auto ">
-          <ContactNav />
+      
           <BookingWidget />
           <BottomNav />
          <Navbar />
