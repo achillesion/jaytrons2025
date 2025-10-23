@@ -7,6 +7,7 @@ import HydrationFix from "./hydration-fix";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import DynamicBackground from "@/components/DynamicBackground";
 import BookingWidget from "@/components/BookingWidget";
+import BottomNav from "@/components/bottonNav";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -195,6 +196,7 @@ export default function RootLayout({
          <div className="flex flex-col min-h-screen  mx-auto ">
           <ContactNav />
           <BookingWidget />
+          <BottomNav />
          <Navbar />
          <div className="">
          {children}
