@@ -42,7 +42,7 @@ export default function Navbar({
     { label: "Portfolio", href: "portfolio", badge: "02" },
     {
       label: "Services",
-      href: "services",
+      href: "/services",
       badge: "03",
       dropdownItems: [
         { label: "React", href: "react-development", icon: <FaReact className="text-white" /> },
@@ -109,13 +109,13 @@ export default function Navbar({
             {navItems.map((item) => (
               item.dropdownItems ? (
                 <div key={item.href} className="relative">
-                  <button
-                    onMouseEnter={() => setActiveDropdown(item.href)}
-                    onMouseLeave={() => setActiveDropdown(null)}
+                  
+                  <Link
+                    href={item.href}
                     className="relative transition-all duration-300 hover:scale-105 flex items-center cursor-pointer font-reguler text-white"
                   >
                     <span>{item.label}</span>
-                  </button>
+                  </Link>
                 </div>
               ) : (
                 <button
