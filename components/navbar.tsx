@@ -7,6 +7,7 @@ import { MdOutlineShoppingCart } from "react-icons/md";
 import { useState, useEffect, useRef } from "react";
 import { useTheme } from "@/contexts/ThemeContext";
 import ServicesDropdown from "./ServicesDropdown";
+import { Calendar } from "lucide-react";
 
 // Smooth scroll function
 const smoothScrollTo = (elementId: string) => {
@@ -44,11 +45,11 @@ export default function Navbar({
       href: "services",
       badge: "03",
       dropdownItems: [
-        { label: "React", href: "react-development", icon: <FaReact className="text-black" /> },
-        { label: "WordPress", href: "wordpress-development", icon: <FaWordpress className="text-black" /> },
-        { label: "UI UX", href: "ui-ux-design", icon: <FaFigma className="text-black" /> },
-        { label: "React Native", href: "react-native-development", icon: <FaReact className="text-black" /> },
-        { label: "Ecommerce Store", href: "ecommerce-development", icon: <MdOutlineShoppingCart className="text-black" /> }
+        { label: "React", href: "react-development", icon: <FaReact className="text-white" /> },
+        { label: "WordPress", href: "wordpress-development", icon: <FaWordpress className="text-white" /> },
+        { label: "UI UX", href: "ui-ux-design", icon: <FaFigma className="text-white" /> },
+        { label: "React Native", href: "react-native-development", icon: <FaReact className="text-white" /> },
+        { label: "Ecommerce Store", href: "ecommerce-development", icon: <MdOutlineShoppingCart className="text-white" /> }
       ]
     },
 
@@ -60,6 +61,7 @@ export default function Navbar({
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [isScrolled, setIsScrolled] = useState(false);
   const { activeTab } = useTheme();
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -77,16 +79,31 @@ export default function Navbar({
     };
   }, []);
 
+  // Handle scroll detection
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      setIsScrolled(scrollTop > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
    
      <div className="relative ">
-      <nav ref={dropdownRef} className={`absolute w-full top-2 md:top-0 left-1/2 -translate-x-1/2 p-4 md:p-4 z-50 bg-white  ${className}`}>
-        <div className="flex w-full justify-between items-center max-w-[1000px] mx-auto">
+      <nav ref={dropdownRef} className={`fixed top-3 left-1/2 -translate-x-1/2 p-4 md:p-4 z-50 transition-all duration-200 ease-in-out ${
+        isScrolled 
+          ? 'w-[870px] border border-gray-500 rounded-lg backdrop-blur-lg bg-black/20' 
+          : 'w-[1070px] border-0 rounded-none backdrop-blur-none bg-transparent'
+      } ${className}`}>
+        <div className="flex w-full justify-between items-center x-auto">
           <div className="flex items-center gap-10">
-            <h1 className="transition-all duration-300 hover:scale-105 cursor-pointer text-black">{brandName}</h1>
-
-
-          </div>
+            <h1 className="transition-all duration-300 hover:scale-105 cursor-pointer text-white">{brandName}</h1>
+           </div>
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center font-regular gap-10 text-sm">
             {navItems.map((item) => (
@@ -95,7 +112,7 @@ export default function Navbar({
                   <button
                     onMouseEnter={() => setActiveDropdown(item.href)}
                     onMouseLeave={() => setActiveDropdown(null)}
-                    className="relative transition-all duration-300 hover:scale-105 flex items-center cursor-pointer font-reguler text-black"
+                    className="relative transition-all duration-300 hover:scale-105 flex items-center cursor-pointer font-reguler text-white"
                   >
                     <span>{item.label}</span>
                   </button>
@@ -107,7 +124,7 @@ export default function Navbar({
                     smoothScrollTo(item.href);
                     setIsMobileMenuOpen(false);
                   }}
-                  className="relative transition-all duration-300  flex items-center text-black  font-reguler  cursor-pointer"
+                  className="relative transition-all duration-300  flex items-center text-white  font-reguler  cursor-pointer"
                 >
                   <span>{item.label}</span>
                 </button>
@@ -115,7 +132,8 @@ export default function Navbar({
             ))}
           </div>
           {/* Desktop CTA Button */}
-          <div className="hidden md:flex items-center  justify-center bg-[#066BDE] rounded-lg p-2 transition-all duration-300 hover:scale-105 cursor-pointer group w-[127px]">
+          <div className="hidden md:flex items-center  justify-center gap-2 bg-[#066BDE] rounded-lg p-2 transition-all duration-300 hover:scale-105 cursor-pointer group w-[127px]">
+            <Calendar className="w-4 h-4"/>
             <a
               href="https://wa.me/923215236350"
               target="_blank"
@@ -123,14 +141,14 @@ export default function Navbar({
               className="flex items-center text-sm text-white font-semibold gap-2"
             >
               {ctaText}
-              <FaArrowLeft className="rotate-130"/>
+            
              
             </a>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-black p-2 "
+            className="md:hidden text-white p-2 "
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle mobile menu"
           >
@@ -158,7 +176,7 @@ export default function Navbar({
                       smoothScrollTo(item.href);
                       setIsMobileMenuOpen(false);
                     }}
-                    className="text-black hover:text-[#13AA02] transition-colors duration-300 text-left"
+                    className="text-white hover:text-[#13AA02] transition-colors duration-300 text-left"
                   >
                     {item.label}
                   </button>

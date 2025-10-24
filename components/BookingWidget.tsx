@@ -31,7 +31,7 @@ const BookingWidget = () => {
   return (
     <>
       {/* Custom Button */}
-      <div className="fixed bottom-6 right-6 z-20">
+      <div className="fixed bottom-22 md:bottom-6 right-6 z-20">
         <button
           onClick={handleOpenPopup}
           className="bg-gray-900 hover:bg-gray-800 cursor-pointer rounded-full text-white p-4  shadow-lg transition-all duration-200 flex items-center space-x-3 min-w-[280px]"
