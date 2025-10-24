@@ -4,6 +4,7 @@ import ServiceCard from '@/components/ServiceCard'
 import { Input } from '@/components/ui/input'
 
 const servicesData = [
+  "All",
   "Website Development",
   "Mobile Development",
   "UI/UX Design",
@@ -23,8 +24,8 @@ const Page = () => {
   return (
     <div className='container mx-auto min-h-screen p-4 max-w-[1070px]'>
       <div className='flex flex-col items-center h-full justify-center'>
-        <h1 className='text-[#10AB01] text-[54px] font-bold mt-20'>Professional Services</h1>
-        <span className='text-gray-300 max-w-[500px] text-left md:text-center'>
+        <h1 className='text-[#10AB01] text-3xl mb-5 lg:text-[54px] font-bold mt-20'>Professional Services</h1>
+        <span className='text-gray-300 max-w-[500px] text-center'>
           From concept to deployment, I offer comprehensive digital solutions to help bring your ideas to life.
           Browse my services and find the perfect fit for your project.
         </span>

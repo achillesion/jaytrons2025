@@ -93,23 +93,22 @@ export default function Navbar({
   }, []);
 
   return (
-   
-     <div className="relative ">
-      <nav ref={dropdownRef} className={`fixed top-3 left-1/2 -translate-x-1/2 p-4 md:p-4 z-50 transition-all duration-200 ease-in-out ${
-        isScrolled 
-          ? 'w-[870px] border border-gray-500 rounded-lg backdrop-blur-lg bg-black/20' 
+
+    <div className="relative ">
+      <nav ref={dropdownRef} className={`fixed top-3 left-1/2 -translate-x-1/2 p-4 md:p-4 z-50 transition-all duration-200 ease-in-out ${isScrolled
+          ? 'w-[870px] border border-gray-500 rounded-lg backdrop-blur-lg bg-black/20'
           : 'w-[1070px] border-0 rounded-none backdrop-blur-none bg-transparent'
-      } ${className}`}>
+        } ${className}`}>
         <div className="flex w-full justify-between items-center x-auto">
           <div className="flex items-center gap-10">
             <h1 className="transition-all duration-300 hover:scale-105 cursor-pointer text-white">{brandName}</h1>
-           </div>
+          </div>
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center font-regular gap-10 text-sm">
             {navItems.map((item) => (
               item.dropdownItems ? (
                 <div key={item.href} className="relative">
-                  
+
                   <Link
                     href={item.href}
                     className="relative transition-all duration-300 hover:scale-105 flex items-center cursor-pointer font-reguler text-white"
@@ -133,7 +132,7 @@ export default function Navbar({
           </div>
           {/* Desktop CTA Button */}
           <div className="hidden md:flex items-center  justify-center gap-2 bg-[#066BDE] rounded-lg p-2 transition-all duration-300 hover:scale-105 cursor-pointer group w-[127px]">
-            <Calendar className="w-4 h-4"/>
+            <Calendar className="w-4 h-4" />
             <a
               href="https://wa.me/923215236350"
               target="_blank"
@@ -141,8 +140,6 @@ export default function Navbar({
               className="flex items-center text-sm text-white font-semibold gap-2"
             >
               {ctaText}
-            
-             
             </a>
           </div>
 
@@ -157,34 +154,44 @@ export default function Navbar({
         </div>
 
         {/* Mobile Navigation */}
-        <div className={`md:hidden rounded-b-xl overflow-hidden bg-black/80 backdrop-blur-md border border-black/10 transition-all duration-300 ${isMobileMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
-          }`}>
-          <div className={`p-4 transition-all duration-500 ${isMobileMenuOpen ? 'transform translate-y-0' : 'transform -translate-y-4'
-            }`}>
-            <div className="flex flex-col space-y-6 ">
+        <div
+          className={`md:hidden fixed top-[72px] left-0 w-full bg-black/90 backdrop-blur-lg border-t
+             border-gray-700 transition-all duration-300 ease-in-out overflow-hidden z-40 ${isMobileMenuOpen ? 'max-h-screen opacity-100 visible' : 'max-h-0 opacity-0 invisible'
+            }`}
+        >
+          <div
+            className={`p-5 transition-transform duration-500 ${isMobileMenuOpen ? 'translate-y-0' : '-translate-y-5'
+              }`}
+          >
+            <div className="flex flex-col space-y-5">
               {navItems.map((item, index) => (
-                <div
-                  key={item.href}
-                  className={`transition-all duration-300 ${isMobileMenuOpen
-                    ? 'opacity-100 transform translate-x-0'
-                    : 'opacity-0 transform -translate-x-4'
-                    }`}
-                  style={{ transitionDelay: `${index * 100}ms` }}
+                <button
+                  key={index}
+                  onClick={() => {
+                    smoothScrollTo(item.href);
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className="text-white text-lg font-medium hover:text-[#13AA02] transition-colors duration-300 text-left"
                 >
-                  <button
-                    onClick={() => {
-                      smoothScrollTo(item.href);
-                      setIsMobileMenuOpen(false);
-                    }}
-                    className="text-white hover:text-[#13AA02] transition-colors duration-300 text-left"
-                  >
-                    {item.label}
-                  </button>
-                </div>
+                  {item.label}
+                </button>
               ))}
+
+              {/* CTA Button */}
+              <a
+                href="https://wa.me/923215236350"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 bg-[#066BDE] rounded-lg py-3 text-white font-semibold hover:bg-[#005FCC] transition-all"
+              >
+                <Calendar className="w-4 h-4" />
+                {ctaText}
+              </a>
             </div>
           </div>
         </div>
+
+
       </nav>
 
       {/* Services Dropdown Component - Tesla Style */}
@@ -195,6 +202,6 @@ export default function Navbar({
         onMouseLeave={() => setActiveDropdown(null)}
       />
     </div>
- 
+
   );
 }
